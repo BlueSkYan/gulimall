@@ -38,4 +38,3 @@ build/
 **/.mvn
 **/target/
 **/.gitignore
-**/.idea
