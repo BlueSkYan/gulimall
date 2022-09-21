@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.application.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.application.name."
+  }
+] }

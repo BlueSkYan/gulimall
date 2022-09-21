@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "mybatis-plus.mapper-location",
+      "type": "java.lang.String",
+      "description": "Description for mybatis-plus.mapper-location."
+    },
+    {
+      "name": "spring.cloud.application.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.application.name."
+    }
+  ] }
