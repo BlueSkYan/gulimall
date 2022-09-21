@@ -37,3 +37,5 @@ build/
 **/mvnw.cmd
 **/.mvn
 **/.gitignore
+
+/gulimall-third-party/src/main/resources/application.yml
