@@ -1,13 +1,13 @@
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://192.168.140.141:3306/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: mysql.blueskyan.xyz
+    url: jdbc:mysql://49.232.19.175:3306/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.140.141:8848
+        server-addr: 49.232.19.175:8848
   application:
     name: gulimall-coupon
 

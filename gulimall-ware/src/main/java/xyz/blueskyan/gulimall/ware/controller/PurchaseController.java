@@ -1,20 +1,18 @@
 package xyz.blueskyan.gulimall.ware.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import xyz.blueskyan.gulimall.ware.entity.PurchaseEntity;
 import xyz.blueskyan.gulimall.ware.service.PurchaseService;
 import xyz.blueskyan.common.utils.PageUtils;
 import xyz.blueskyan.common.utils.R;
-
+import xyz.blueskyan.gulimall.ware.vo.MergeVo;
+import xyz.blueskyan.gulimall.ware.vo.PurchaseDoneVo;
 
 
 /**
@@ -29,6 +27,31 @@ import xyz.blueskyan.common.utils.R;
 public class PurchaseController {
     @Autowired
     private PurchaseService purchaseService;
+
+    @RequestMapping("/unreceive/list")
+    public R unReceiveList(@RequestParam Map<String, Object> params){
+        PageUtils page = purchaseService.queryPageUnreceivePurchase(params);
+
+        return R.ok().put("page", page);
+    }
+
+    @PostMapping("/merge")
+    public R merge(@RequestBody MergeVo mergeVo){
+        purchaseService.mergePurchase(mergeVo);
+        return R.ok();
+    }
+
+    @PostMapping("/received")
+    public R merge(@RequestBody List<Long> ids){
+        purchaseService.received(ids);
+        return R.ok();
+    }
+
+    @PostMapping("/done")
+    public R finish(@RequestBody PurchaseDoneVo purchaseDoneVo){
+        purchaseService.done(purchaseDoneVo);
+        return R.ok();
+    }
 
     /**
      * 列表

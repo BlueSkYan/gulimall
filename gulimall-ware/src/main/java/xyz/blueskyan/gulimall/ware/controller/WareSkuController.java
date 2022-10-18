@@ -1,20 +1,17 @@
 package xyz.blueskyan.gulimall.ware.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import xyz.blueskyan.gulimall.ware.entity.WareSkuEntity;
 import xyz.blueskyan.gulimall.ware.service.WareSkuService;
 import xyz.blueskyan.common.utils.PageUtils;
 import xyz.blueskyan.common.utils.R;
-
+import xyz.blueskyan.gulimall.ware.vo.SkuHasStockVo;
 
 
 /**
@@ -30,6 +27,14 @@ public class WareSkuController {
     @Autowired
     private WareSkuService wareSkuService;
 
+
+    @PostMapping("/hasstock")
+    public R<List<SkuHasStockVo>> getSkusHasStock(@RequestBody List<Long> skuIds){
+        List<SkuHasStockVo> vos = wareSkuService.getSkusHasStock(skuIds);
+        R<List<SkuHasStockVo>> ok = R.ok();
+        ok.setData(vos);
+        return ok;
+    }
     /**
      * 列表
      */

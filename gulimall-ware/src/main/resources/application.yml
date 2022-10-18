@@ -3,11 +3,23 @@ server:
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://192.168.140.141:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: mysql.blueskyan.xyz
+    url: jdbc:mysql://blueskyan.xyz:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: blueskyan.xyz:8848
+      application:
+        name: gulimall-ware
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/**.xml
   global-config:
     db-config:
       id-type: auto
+
+logging:
+  level:
+    xyz.blueskyan.gulimall: debug

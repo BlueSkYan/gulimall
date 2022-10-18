@@ -58,7 +58,6 @@ public class BrandController {
     @RequestMapping("/save")
     public R save(@Valid @RequestBody BrandEntity brand){
 		brandService.save(brand);
-
         return R.ok();
     }
 
